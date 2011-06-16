@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9997.4 (Web2C 2010) (format=xelatex 2011.5.29)  16 JUN 2011 21:34
+This is XeTeX, Version 3.1415926-2.2-0.9997.4 (Web2C 2010) (format=xelatex 2011.5.29)  17 JUN 2011 01:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -871,8 +871,8 @@ File: sjtumaster-xetex.cfg 2009/09/15 v0.2a sjtumaster-xetex configuration file
 LaTeX Warning: Unused global option(s):
     [a4paer].
 
-(./diss.aux (./body/abstract.aux) (./body/app1.aux) (./body/app2.aux)
-(./body/thanks.aux))
+(./diss.aux (./body/abstract.aux) (./body/chapter01.aux) (./body/chapter02.aux)
+(./body/app2.aux) (./body/thanks.aux))
 \openout1 = `diss.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
@@ -965,8 +965,10 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 \c@lstlisting=\count210
 \AtBeginShipoutBox=\box39
 Package hyperref Info: Link coloring ON on input line 48.
- (d:/texlive/2010/texmf-dist/tex/latex/hyperref/nameref.sty
+
+(d:/texlive/2010/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
+
 (d:/texlive/2010/texmf-dist/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
@@ -1082,73 +1084,42 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.05pt
 (hyperref)                replaced by space on input line 96.
 
-(./diss.toc)
+(./diss.toc [2
+
+
+])
 \tf@toc=\write4
 \openout4 = `diss.toc'.
 
- [2
-
-
-] (./diss.lot)
+ [3] (./diss.lot)
 \tf@lot=\write5
 \openout5 = `diss.lot'.
 
- [3
+ [4
 
 ] (./diss.lof)
 \tf@lof=\write6
 \openout6 = `diss.lof'.
 
- [4
+ [5
 
 ]
-\openout2 = `body/app1.aux'.
+\openout2 = `body/chapter01.aux'.
 
- (./body/app1.tex
-附录\nobreakspace {}A
-(d:/texlive/2010/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
-)
-(d:/texlive/2010/texmf-dist/tex/latex/listings/lstlang2.sty
-File: lstlang2.sty 2004/09/05 1.3 listings language file
-)
-(d:/texlive/2010/texmf-dist/tex/latex/listings/lstlang3.sty
-File: lstlang3.sty 2004/09/05 1.3 listings language file
-)
-LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 18.
-
-
-(d:/texlive/2010/texmf-dist/tex/latex/euenc/eu1lmtt.fd
-File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-\c@zf@famc@Adobe Fangsong Std=\count214
- fontspec Info: Defining font family for 'Adobe Fangsong Std' with options [Map
-ping=tex-text,BoldFont={Adobe Fangsong Std},BoldFeatures={RawFeature={embolden=
-4}}].
-
-Package fontspec Info: Defining shape m/n with raw font features:
-(fontspec)             mapping=tex-text;.
-Package fontspec Info: Defining shape bx/n with raw font features:
-(fontspec)             mapping=tex-text;embolden=4;.
- fontspec Info: Could not resolve font Adobe Fangsong Std/I (it probably doesn'
-t exist).
-
- fontspec Info: Could not resolve font Adobe Fangsong Std/I (it probably doesn'
-t exist).
-
- [1
+ (./body/chapter01.tex
+第一章
+[1
 
 
 
-] [2] [3] [4]
-[5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16]) [17]
-\openout2 = `body/app2.aux'.
+]) [2]
+\openout2 = `body/chapter02.aux'.
 
- (./body/app2.tex
-附录\nobreakspace {}B
-File: figures/app2/circuitpng.png Graphic file (type QTm)
-<use  "figures/app2/circuitpng.png" >
-\c@zf@famc@Adobe Kaiti Std=\count215
+ (./body/chapter02.tex
+第二章
+File: figures/chap2/circuitsmall.png Graphic file (type QTm)
+<use  "figures/chap2/circuitsmall.png" >
+\c@zf@famc@Adobe Kaiti Std=\count214
  fontspec Info: Defining font family for 'Adobe Kaiti Std' with options [Mappin
 g=tex-text,BoldFont={Adobe Kaiti Std},BoldFeatures={RawFeature={embolden=4}}].
 
@@ -1162,48 +1133,72 @@ xist).
  fontspec Info: Could not resolve font Adobe Kaiti Std/I (it probably doesn't e
 xist).
 
-) [18
+ [3
+
+
+
+]
+File: figures/chap2/digitled.png Graphic file (type QTm)
+
+<use  "figures/chap2/digitled.png" >
+File: figures/chap2/lightbull.png Graphic file (type QTm)
+ <use  "figures/chap2/lightbull.png" >
+[4]
+File: figures/chap2/keyboard.png Graphic file (type QTm)
+ <use  "figures/chap2/keyboard.png" > [5]
+File: figures/chap2/redint0.png Graphic file (type QTm)
+
+<use  "figures/chap2/redint0.png" > [6]) [7]
+\openout2 = `body/app2.aux'.
+
+ (./body/app2.tex
+附录\nobreakspace {}A
+File: figures/app2/circuitpng.png Graphic file (type QTm)
+<use  "figures/app2/circuitpng.png" >) [8
 
 
 
 ] (./diss.bbl
 LaTeX Font Info:    Font shape `EU1/AdobeSongStd(1)/m/sc' undefined
 (Font)              using `EU1/AdobeSongStd(1)/m/n' instead on input line 9.
-) [19
+) [9
 
 
 
 ]
 \openout2 = `body/thanks.aux'.
 
-
-(./body/thanks.tex
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 12.05pt
-(hyperref)                replaced by space on input line 10.
-
+ (./body/thanks.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.05pt
 (hyperref)                replaced by space on input line 10.
 
-) [20
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \hskip 12.05pt
+(hyperref)                replaced by space on input line 10.
+
+) [10
 
 
-] (./diss.aux (./body/abstract.aux) (./body/app1.aux) (./body/app2.aux)
-(./body/thanks.aux))
+] (./diss.aux (./body/abstract.aux) (./body/chapter01.aux)
+(./body/chapter02.aux) (./body/app2.aux) (./body/thanks.aux))
 LaTeX Font Info:    Size substitutions with differences
 (Font)              up to 0.66pt have occurred.
 LaTeX Font Info:    Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 21381 strings out of 494541
- 340594 string characters out of 3160201
- 529808 words of memory out of 3000000
- 24080 multiletter control sequences out of 15000+200000
- 22369 words of font info for 142 fonts, out of 3000000 for 9000
+ 20588 strings out of 494541
+ 330861 string characters out of 3160201
+ 404611 words of memory out of 3000000
+ 23298 multiletter control sequences out of 15000+200000
+ 20083 words of font info for 125 fonts, out of 3000000 for 9000
  669 hyphenation exceptions out of 8191
- 61i,12n,76p,658b,1783s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,11n,64p,658b,535s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on diss.pdf (25 pages).
+Output written on diss.pdf (16 pages).
