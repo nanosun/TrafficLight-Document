@@ -1,0 +1,71 @@
+This is BibTeX, Version 0.99d (Web2C 2010)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: diss.aux
+The style file: GBT7714-2005NLang.bst
+A level-1 auxiliary file: body/abstract.aux
+A level-1 auxiliary file: body/chapter01.aux
+A level-1 auxiliary file: body/thanks.aux
+new.block is an unknown function---line 73 of file GBT7714-2005NLang.bst
+remove.dots is an unknown function---line 461 of file GBT7714-2005NLang.bst
+remove.dots is an unknown function---line 514 of file GBT7714-2005NLang.bst
+remove.dots is an unknown function---line 571 of file GBT7714-2005NLang.bst
+remove.dots is an unknown function---line 616 of file GBT7714-2005NLang.bst
+format.pages is an unknown function---line 1163 of file GBT7714-2005NLang.bst
+format.pages is an unknown function---line 1194 of file GBT7714-2005NLang.bst
+format.pages is an unknown function---line 1203 of file GBT7714-2005NLang.bst
+format.pages is an unknown function---line 1233 of file GBT7714-2005NLang.bst
+format.pages is an unknown function---line 1242 of file GBT7714-2005NLang.bst
+Reallocated wiz_functions (elt_size=4) to 6800 items from 3400.
+*publisher is an unknown function---line 1929 of file GBT7714-2005NLang.bst
+*　* is an unknown function---line 1938 of file GBT7714-2005NLang.bst
+ouput is an unknown function---line 2064 of file GBT7714-2005NLang.bst
+ouput is an unknown function---line 2068 of file GBT7714-2005NLang.bst
+ouput is an unknown function---line 2102 of file GBT7714-2005NLang.bst
+ouput is an unknown function---line 2105 of file GBT7714-2005NLang.bst
+format.conference.title is an unknown function---line 2622 of file GBT7714-2005NLang.bst
+format.cconference.title is an unknown function---line 2657 of file GBT7714-2005NLang.bst
+Database file #1: reference/ref.bib
+You can't pop an empty literal stack for entry mcu
+while executing---line 3560 of file GBT7714-2005NLang.bst
+You've used 1 entry,
+            6756 wiz_defined-function locations,
+            1203 strings with 8485 characters,
+and the built_in function-call counts, 293 in all, are:
+= -- 21
+> -- 4
+< -- 1
++ -- 3
+- -- 1
+* -- 18
+:= -- 49
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 1
+chr.to.int$ -- 1
+cite$ -- 1
+duplicate$ -- 13
+empty$ -- 40
+format.name$ -- 2
+if$ -- 66
+int.to.chr$ -- 1
+int.to.str$ -- 2
+missing$ -- 2
+newline$ -- 13
+num.names$ -- 2
+pop$ -- 6
+preamble$ -- 1
+purify$ -- 1
+quote$ -- 0
+skip$ -- 13
+stack$ -- 0
+substring$ -- 2
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 2
+warning$ -- 0
+while$ -- 1
+width$ -- 0
+write$ -- 20
+(There were 19 error messages)

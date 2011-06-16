@@ -1,0 +1,7 @@
+\let \CTEX@spaceChar \relax 
+\contentsline {chapter}{\CJKfamily {zhhei}摘要}{i}{chapter*.1}
+\contentsline {chapter}{目\CTEX@spaceChar \CTEX@spaceChar 录}{ii}{chapter*.2}
+\contentsline {chapter}{\numberline {附录\nobreakspace {}A\hspace {0.3em}}源程序}{1}{appendix.A}
+\contentsline {chapter}{\numberline {附录\nobreakspace {}B\hspace {0.3em}}电路图}{18}{appendix.B}
+\contentsline {chapter}{参考文献}{22}{appendix*.3}
+\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{23}{appendix*.4}
