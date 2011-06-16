@@ -2,19 +2,6 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {2--1}{\ignorespaces 这里将出现在插图索引中}}{13}{figure.2.1}
-\contentsline {figure}{\numberline {2--2}{\ignorespaces 插入eps图像和pdf图像}}{13}{figure.2.2}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {EPS Figure}}}{13}{figure.2.2}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {PDF Figure}}}{13}{figure.2.2}
-\contentsline {figure}{\numberline {2--3}{\ignorespaces 这里将出现在插图索引}}{14}{figure.2.3}
-\contentsline {figure}{\numberline {2--4}{\ignorespaces 这里将出现在插图索引}}{14}{figure.2.4}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {B--1}{\ignorespaces 电路图}}{18}{figure.B.1}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

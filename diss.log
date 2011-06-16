@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9997.4 (Web2C 2010) (format=xelatex 2011.5.29)  16 JUN 2011 19:18
+This is XeTeX, Version 3.1415926-2.2-0.9997.4 (Web2C 2010) (format=xelatex 2011.5.29)  16 JUN 2011 21:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -871,7 +871,8 @@ File: sjtumaster-xetex.cfg 2009/09/15 v0.2a sjtumaster-xetex configuration file
 LaTeX Warning: Unused global option(s):
     [a4paer].
 
-(./diss.aux (./body/abstract.aux) (./body/app1.aux) (./body/app2.aux))
+(./diss.aux (./body/abstract.aux) (./body/app1.aux) (./body/app2.aux)
+(./body/thanks.aux))
 \openout1 = `diss.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
@@ -964,10 +965,8 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 \c@lstlisting=\count210
 \AtBeginShipoutBox=\box39
 Package hyperref Info: Link coloring ON on input line 48.
-
-(d:/texlive/2010/texmf-dist/tex/latex/hyperref/nameref.sty
+ (d:/texlive/2010/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
-
 (d:/texlive/2010/texmf-dist/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
@@ -1090,6 +1089,18 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
  [2
 
 
+] (./diss.lot)
+\tf@lot=\write5
+\openout5 = `diss.lot'.
+
+ [3
+
+] (./diss.lof)
+\tf@lof=\write6
+\openout6 = `diss.lof'.
+
+ [4
+
 ]
 \openout2 = `body/app1.aux'.
 
@@ -1151,41 +1162,22 @@ xist).
  fontspec Info: Could not resolve font Adobe Kaiti Std/I (it probably doesn't e
 xist).
 
-Invalid UTF-8 byte or sequence at line 18 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 18 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 18 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 18 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 18 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 18 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 18 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 18 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 18 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 18 replaced by U+FFFD.
-File: figures/app2/circuiteps.eps Graphic file (type eps)
- <figures/app2/circuiteps.eps>
-
-LaTeX Warning: Float too large for page by 17.97081pt on input line 20.
-
-File: figures/app2/circuitjpg.jpg Graphic file (type QTm)
-<use  "figures/app2/circuitjpg.jpg" >
-
-LaTeX Warning: Float too large for page by 24.1694pt on input line 25.
-
 ) [18
 
 
 
-] [19] [20] [21] (./diss.bbl
+] (./diss.bbl
 LaTeX Font Info:    Font shape `EU1/AdobeSongStd(1)/m/sc' undefined
 (Font)              using `EU1/AdobeSongStd(1)/m/n' instead on input line 9.
-) [22
+) [19
 
 
 
 ]
 \openout2 = `body/thanks.aux'.
 
- (./body/thanks.tex
+
+(./body/thanks.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.05pt
@@ -1196,30 +1188,22 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.05pt
 (hyperref)                replaced by space on input line 10.
 
-) [23
+) [20
 
 
 ] (./diss.aux (./body/abstract.aux) (./body/app1.aux) (./body/app2.aux)
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
 (./body/thanks.aux))
 LaTeX Font Info:    Size substitutions with differences
 (Font)              up to 0.66pt have occurred.
 LaTeX Font Info:    Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 21371 strings out of 494541
- 340280 string characters out of 3160201
- 528349 words of memory out of 3000000
- 24075 multiletter control sequences out of 15000+200000
- 22337 words of font info for 138 fonts, out of 3000000 for 9000
+ 21381 strings out of 494541
+ 340594 string characters out of 3160201
+ 529808 words of memory out of 3000000
+ 24080 multiletter control sequences out of 15000+200000
+ 22369 words of font info for 142 fonts, out of 3000000 for 9000
  669 hyphenation exceptions out of 8191
  61i,12n,76p,658b,1783s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on diss.pdf (26 pages).
+Output written on diss.pdf (25 pages).

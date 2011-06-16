@@ -96,11 +96,11 @@
 \tableofcontents
 
 % 表格索引
-%\listoftables
+\listoftables
 % 插图索引
-%\listoffigures
-%\addcontentsline{toc}{chapter}{\listfigurename} %将表格索引加入全文目录
-%\addcontentsline{toc}{chapter}{\listtablename}  %将图索引加入全文目录
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename} %将表格索引加入全文目录
+\addcontentsline{toc}{chapter}{\listtablename}  %将图索引加入全文目录
 
 % 主要符号、缩略词对照表
 %\include{body/symbol}
@@ -118,7 +118,7 @@
 }
 
 %% 各章正文内容
-%\include{body/chapter01}
+\include{body/chapter01}
 %\include{body/chapter02}
 %\include{body/chapter03}
 %\include{body/chapter04}
@@ -135,7 +135,7 @@
 \renewcommand\thefigure{\Alph{chapter}--\arabic{figure}}
 \renewcommand\thetable{\Alph{chapter}--\arabic{table}}
 
-\include{body/app1} % 源代码
+%\include{body/app1} % 源代码
 \include{body/app2} %电路图
 
 
