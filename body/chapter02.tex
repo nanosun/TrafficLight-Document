@@ -1,7 +1,7 @@
 %%==================================================
 %% chapter02.tex for SJTU Course Design Thesis
 %% based on CASthesis, SJTU master thesis
-%% modified by sunnano@sjtu.edu.cn
+%% modified by icetiny@gmail.com
 %% version: 0.3a
 %% Encoding: UTF-8
 %% last update: Dec 5th, 2010
@@ -13,14 +13,14 @@
 \label{chap:hardware}
 	本文将主要介绍软件部分的设计，通过对软件设计方案的描述，实现对整个系统功能的介绍。但是硬件部分仍是整个系统的基础，与软件设计也有着密切的关系。本章将对基本的硬件设计做一个浏览。并重点介绍与软件相关最为密切的部分。
 \section{硬件设计总体概况}
-	本系统采用AT89C52单片机为控制核心，晶振电路产生11.0592 MHz的晶振频率，具有复位电路。输入部分有四个地感线圈信号（接P1口低四位），五个键盘按键输入信号（接P2口高五位）。输出部分驱动六个数码管，六个信号灯，四个拍照驱动信号。是控制部分电路图\ref{fig:circuitsmall}，附录\ref{app:circuit}图\ref{fig:circuitall}为其放大版。
+	本系统采用AT89S52单片机为控制核心，晶振电路产生11.0592 MHz的晶振频率，具有复位电路。输入部分有四个地感线圈信号（接P1口低四位），五个键盘按键输入信号（接P2口高五位）。输出部分驱动六个数码管，六个信号灯，四个拍照驱动信号。图\ref{fig:circuitsmall}是控制部分电路图，附录\ref{app:circuit}图\ref{fig:circuitall}为其放大版。
 	
 \begin{figure}[!tbh]
   \centering
   \includegraphics[width=0.85\textwidth]{chap2/circuitsmall.png}
   \bicaption[fig:circuitsmall]{电路图（小）}{控制电路图}{Fig}{Control Circuit Figure}
 \end{figure}
-	要实现规定的功能目标，通过估算，另外也考虑到S52单片机内部存储器足够大（4K），不需要进行存储器的扩展。
+	要实现规定的功能目标，通过估算，另外也考虑到S52单片机内部存储器足够大（8K），而最终生成的程序为1.32Kb，RAM空间也有剩余，故不需要进行存储器的扩展。
 	
 	地感线圈处的输入信号需通过继电器与控制电路连接，具体的连接参数视地感线圈而定。信号灯与数码管的控制信号需要通过光电耦合器后放大再驱动相应器件。这些电路，在以上的控制电路图中并没有体现，但在完整的系统中，它们是同样重要的。
 	
@@ -50,7 +50,7 @@
 	P0口作为数据总线和七个373锁存器相连，P1口的低三位作为地址线，再经过一个38译码器选通各锁存器。单片机的WR信号与38译码器的七个输出端分别或非之后再选通锁存器。在对方案的重新评估中，我们发现也可以令WR信号直接选通138译码器，但考虑到译码器的输出端仍需通过非门，器件数量并未减少太多，故仍保留最初的设计。
 
 \section{键盘}
-	图\ref{fig:hard:keyboard}是键盘的电路图。因为P2口正好还有五个IO口可用，五个键也正好可以实现设置的要求，所以采用的独立键盘。这样对于编程工作也是很大的便利。
+	图\ref{fig:hard:keyboard}是键盘的电路图。因为P2口正好还有五个IO口可用，五个键也正好可以实现设置的要求，所以采用的独立键盘。这样对于编程工作也是很大的便利。各键的定义在\ref{sec:keydefination}节介绍。
 	\begin{figure}[!tbh]
 	\centering
 	\includegraphics[width=0.5\textwidth]{chap2/keyboard.png}

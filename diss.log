@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9997.4 (Web2C 2010) (format=xelatex 2011.5.29)  17 JUN 2011 01:47
+This is XeTeX, Version 3.1415926-2.2-0.9997.4 (Web2C 2010) (format=xelatex 2011.5.29)  17 JUN 2011 23:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -872,7 +872,7 @@ LaTeX Warning: Unused global option(s):
     [a4paer].
 
 (./diss.aux (./body/abstract.aux) (./body/chapter01.aux) (./body/chapter02.aux)
-(./body/app2.aux) (./body/thanks.aux))
+(./body/chapter03.aux) (./body/app2.aux) (./body/thanks.aux))
 \openout1 = `diss.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
@@ -1149,19 +1149,38 @@ File: figures/chap2/keyboard.png Graphic file (type QTm)
 File: figures/chap2/redint0.png Graphic file (type QTm)
 
 <use  "figures/chap2/redint0.png" > [6]) [7]
+\openout2 = `body/chapter03.aux'.
+
+ (./body/chapter03.tex
+第三章
+File: figures/chap3/lightbullflow.png Graphic file (type QTm)
+<use  "figures/chap3/lightbullflow.png" > [8
+
+
+
+] [9]
+File: figures/chap3/keysetflow.png Graphic file (type QTm)
+
+<use  "figures/chap3/keysetflow.png" > [10] [11]
+Overfull \hbox (32.81032pt too wide) in paragraph at lines 70--79
+ [][] 
+ []
+
+) [12]
 \openout2 = `body/app2.aux'.
 
  (./body/app2.tex
 附录\nobreakspace {}A
 File: figures/app2/circuitpng.png Graphic file (type QTm)
-<use  "figures/app2/circuitpng.png" >) [8
+<use  "figures/app2/circuitpng.png" >) [13
 
 
 
 ] (./diss.bbl
-LaTeX Font Info:    Font shape `EU1/AdobeSongStd(1)/m/sc' undefined
-(Font)              using `EU1/AdobeSongStd(1)/m/n' instead on input line 9.
-) [9
+
+LaTeX Warning: Empty `thebibliography' environment on input line 8.
+
+) [14
 
 
 
@@ -1179,26 +1198,22 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.05pt
 (hyperref)                replaced by space on input line 10.
 
-) [10
+) [15
 
 
 ] (./diss.aux (./body/abstract.aux) (./body/chapter01.aux)
-(./body/chapter02.aux) (./body/app2.aux) (./body/thanks.aux))
+(./body/chapter02.aux) (./body/chapter03.aux) (./body/app2.aux)
+(./body/thanks.aux))
 LaTeX Font Info:    Size substitutions with differences
 (Font)              up to 0.66pt have occurred.
-LaTeX Font Info:    Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 20588 strings out of 494541
- 330861 string characters out of 3160201
- 404611 words of memory out of 3000000
- 23298 multiletter control sequences out of 15000+200000
- 20083 words of font info for 125 fonts, out of 3000000 for 9000
+ 20645 strings out of 494541
+ 331908 string characters out of 3160201
+ 411984 words of memory out of 3000000
+ 23323 multiletter control sequences out of 15000+200000
+ 22361 words of font info for 141 fonts, out of 3000000 for 9000
  669 hyphenation exceptions out of 8191
- 61i,11n,64p,658b,535s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,12n,64p,658b,535s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on diss.pdf (16 pages).
+Output written on diss.pdf (21 pages).
