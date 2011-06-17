@@ -37,6 +37,7 @@
 \item 设定任一时段两路口的红灯时间参数，该参数存入RAM中。
 \item 当用户设定的数据为两个00，则更改目前的时间区段为用户设定的值，这一功能可用于在单片机复位后初始化当前时区。
 \end{enumerate}
+
 在设定过程中，数字显示的相应位会闪烁，提示用户目前正在操作的位的位置。
 \subsection{键位定义} \label{sec:keydefination}
 		表\ref{tab:keydef}详细列出了各个按键的定义，了解了这张表基本就可以尝试操作了。但是由于屏显只有两位数码管，刚开始也许还会有些费解，还需要参考\ref{sec:keysetflow}节给出的一个完整的设置流程图。
@@ -70,11 +71,11 @@
       	\centering
       	\bicaption[tab:keyresetmap]{键盘输入处理}{键盘输入处理}{Table}{keyboard input interpretation}
       	\begin{tabular}{c c |c c} \toprule
-        \multicolumn{2}{c|}{用户输入}  &  \multicolumn{2}{c}{\multirow{2}*{相应处理}}  \\ \cmidrule(lr){1-2}   
-        T1 & T2 \\ \cmidrule(lr){1-1}  \cmidrule(lr){2-2} \cmidrule(lr){3-4} 
+        \multicolumn{2}{c|}{用户输入}  &  \multicolumn{2}{c}{\multirow{2}*{相应处理}}  \\ \cmidrule(l){1-2}  
+        T1 & T2 \\ \cmidrule(lr){1-1}  \cmidrule(lr){2-2} \cmidrule(r){3-4} 
         0 & 0 & \multicolumn{2}{c}{设置当前时间段} \\
         $\ge 0, <3$ & $\ge 0, <3$  & \multicolumn{2}{c}{无效输入，不操作}\\
-        $\ge 0, <3$  & 有效输入T2 & T2 写入A路口对应RAM & T2 写入A路口对应RAM \\
+        $\ge 0, <3$  & 有效输入T2 & T2 写入A路口RAM & T2 写入A路口RAM \\
         有效输入T1 & $\ge 0, <3$ & 写入T1 & 写入T1 \\
         有效输入T1 & 有效输入T2	& 写入T1 & 写入T2 \\ \bottomrule
       	\end{tabular}
@@ -84,6 +85,3 @@
 
 \section{闯红灯拍照功能}
 本系统还具有对闯红灯的车辆拍照的功能。需要说明的是，四个路口分别布置了地感线圈，只有在该路为红灯状态时，地感线圈发出的信号才有效。系统可以响应两个相对的路口同时闯红灯的状况，虽然这种情况的几率并不大。
-
-\section{仍待加入的功能}
-待完成

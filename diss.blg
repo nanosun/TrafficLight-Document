@@ -6,9 +6,11 @@ A level-1 auxiliary file: body/abstract.aux
 A level-1 auxiliary file: body/chapter01.aux
 A level-1 auxiliary file: body/chapter02.aux
 A level-1 auxiliary file: body/chapter03.aux
+A level-1 auxiliary file: body/chapter04.aux
+A level-1 auxiliary file: body/conclusion.aux
 A level-1 auxiliary file: body/app1.aux
-I found no \citation commands---while reading file diss.aux
-I found no \bibdata command---while reading file diss.aux
+A level-1 auxiliary file: body/app2.aux
+A level-1 auxiliary file: body/thanks.aux
 new.block is an unknown function---line 73 of file GBT7714-2005NLang.bst
 remove.dots is an unknown function---line 461 of file GBT7714-2005NLang.bst
 remove.dots is an unknown function---line 514 of file GBT7714-2005NLang.bst
@@ -28,45 +30,56 @@ ouput is an unknown function---line 2102 of file GBT7714-2005NLang.bst
 ouput is an unknown function---line 2105 of file GBT7714-2005NLang.bst
 format.conference.title is an unknown function---line 2622 of file GBT7714-2005NLang.bst
 format.cconference.title is an unknown function---line 2657 of file GBT7714-2005NLang.bst
-You've used 0 entries,
+Database file #1: reference/ref.bib
+You can't pop an empty literal stack for entry mcu1
+while executing---line 3560 of file GBT7714-2005NLang.bst
+You can't pop an empty literal stack for entry mcu
+while executing---line 3560 of file GBT7714-2005NLang.bst
+You can't pop an empty literal stack for entry mcu2
+while executing---line 3560 of file GBT7714-2005NLang.bst
+You can't pop an empty literal stack for entry mcu3
+while executing---line 3560 of file GBT7714-2005NLang.bst
+You can't pop an empty literal stack for entry mcu4
+while executing---line 3560 of file GBT7714-2005NLang.bst
+You've used 5 entries,
             6756 wiz_defined-function locations,
-            1197 strings with 8408 characters,
-and the built_in function-call counts, 34 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 11
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+            1229 strings with 8893 characters,
+and the built_in function-call counts, 1413 in all, are:
+= -- 113
+> -- 34
+< -- 4
++ -- 21
+- -- 8
+* -- 92
+:= -- 210
+add.period$ -- 15
+call.type$ -- 5
+change.case$ -- 5
+chr.to.int$ -- 5
+cite$ -- 5
+duplicate$ -- 67
+empty$ -- 196
+format.name$ -- 17
+if$ -- 344
 int.to.chr$ -- 1
-int.to.str$ -- 1
-missing$ -- 0
-newline$ -- 8
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 6
+missing$ -- 10
+newline$ -- 33
+num.names$ -- 10
+pop$ -- 36
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 5
 quote$ -- 0
-skip$ -- 1
+skip$ -- 63
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
+substring$ -- 10
+swap$ -- 10
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 10
 warning$ -- 0
-while$ -- 0
+while$ -- 5
 width$ -- 0
-write$ -- 7
-(There were 20 error messages)
+write$ -- 72
+(There were 23 error messages)

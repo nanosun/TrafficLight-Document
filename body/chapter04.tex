@@ -68,3 +68,107 @@
 				14 & SUBBCD &BCD码减一 & 对36H中的BCD码操作&\\ \hline	
       	\end{longtable}
 \section{问题研讨及程序分析}
+\subsection{定时程序的设计} \label{sec:timeprog}
+本程序中利用T0和T1串联产生0.5秒的定时。T0定时到后，取反P3.5位，即送给T1一个二分频的计数信号。主程序放在T1中断处理程序中执行，提高了响应速度和计时准确性。
+理论上T0的定时时间应越长越好，这样与T1同时触发中断的概率越小，但是考虑到S52单片机看门狗需要每隔8192个机器周期就会产生复位信号，而T0的中断处理程序中清零看门狗，故T0的计数周期必须小于8192个机器周期。实际设定T0每6400个机器周期产生中断，计数器T1的计数个数为36。
+
+若按照以上设定，则T0的时间常数为\#E700H。但是考虑到本程序要在一天中累计小时数，计时精度要求较高。仿真测试显示该时间常数还需要修正。经估算和仿真测试发现，T0的中断处理程序约有9个周期的滞后，故修正时间常数为\#E709H。
+
+计数器1的中断处理程序长度远小于6400×2个机器周期，故与计时器0的中断不会发生冲突。
+
+\begin{lstlisting}[language={[x86masm]assembler},escapeinside="",caption={时间常数设置},label=code:timeconstantset] 
+		MOV TMOD,#61H	;初始化计时器 定时器0方式1 计数器1方式2
+		MOV TH0,#0E7H	
+		MOV TL0,#09H	
+		MOV TH1,#0DCH ;256-36
+		MOV TL1,#0DCH
+\end{lstlisting} 
+经仿真测试，按照如代码\ref{code:timeconstantset}设置后，运行时间如表\ref{tab:timeset}所示，每秒偏差小于$5\mu s$，每天的偏差约为0.4s还是比较精确的。代码中T0中断中还需先插入一nop语句。
+\begin{table}[!htpb]
+      	\centering
+   	\bicaption[tab:timeset]{时间偏差}{定时偏差}{Table}{Time deviation}
+      	\begin{tabular}{ccccc} \toprule
+       		\multicolumn{5}{c}{每次T1中断时的时刻(ms)} \\ \hline
+       		493.44& 993.44&1493.43&1993.43&2493.43 \\ 
+       		2993.43&3493.43&3993.42&4492.42&4492.42 \\ \bottomrule
+      	\end{tabular}
+		\end{table}
+\subsection{中断优先级的设计} \label{sec:intstudy}
+\begin{lstlisting}[language={[x86masm]assembler},escapeinside="",caption={中断优先级设置}] 
+		MOV IP,#00001010B  
+		; \verb+EA | - | PT2 | PS | PT1 | PX1 | PT0 | PX0+
+		; \verb+1  | 0 |  0  |  0 |  1  |  0  |  1  |  0+
+\end{lstlisting} 
+表\ref{tab:intvectors}已经给出了中断优先级的排列顺序。T0中断的优先级最高，因为它是精确定时的关键。T1计数器次之，设为高优先级是防止其被持续时间较长的按键中断阻断。T1中断程序关乎倒计时的正确显示，而键盘中断可能长达数百毫秒，若将T1阻断，则倒计时也将延迟数百毫秒，这是不能接受的。两个外部中断都处于低优先级，除了它们耗时较长不能阻断计时中断的原因，它们本身也不需要非常迅速的响应，用户的的反应在百毫秒级别，闯红灯拍照计时延迟一秒之久，也仍能拍到肇事车辆。
+\subsection{看门狗程序}
+根据文献\cite{mcu1},设计看门狗程序如代码所示。S52单片机内置看门狗硬件，它的作用是防止程序跑飞。但也存在一个问题：复位后用户定义的数据将被清空。
+\begin{lstlisting}[language={[x86masm]assembler},escapeinside="",caption={看门狗程序}] 
+		;主程序中喂狗
+		MOV 0A6H,#01EH ;激活看门狗
+		MOV 0A6H,#0E1H
+		
+		;INT\_T0 中断处理程序中清零看门狗
+		INT_TO:								;计时器0中断处理程序
+		nop
+		MOV TH0,#0E7H 				
+		MOV TL0,#09H
+		MOV 0A6H,#01EH 				;清零看门狗
+		MOV 0A6H,#0E1H 
+		CPL P3.5
+		RETI
+\end{lstlisting} 
+\subsection{双机通讯}
+双机通讯由于难以仿真，故没有放到最终的源程序中。但我们考虑到了这个功能，并设计了它的接口程序。
+\begin{lstlisting}[language={[x86masm]assembler},escapeinside="",caption={双机通训代码}] 
+		;主机从机设置相同的波特率，为$\frac{1}{64}f_{osc}$
+		MOV PCON #80H
+		MOV SCON #80H
+		;从机还需要设置 SETB SM2
+		;从机中断处理程序
+		CLR RI
+		如果SBUF是#FFH，则CLR SM2 开始接收数据
+		接受一帧地址a
+		接受一帧红灯时间，直接存入a
+		如果SBUF是#FEH，则SETB SM2 结束接受数据
+		;主机发送包程序
+		SETB TB8
+		发送 #0FFH
+		CLR TB8
+		发送一帧地址
+		发送一帧数据
+		发送#0FEH 结束发送
+\end{lstlisting}
+\subsection{按键去抖}
+在按键中断处理程序中，调用DELAY10延时10ms进行前沿去抖。考虑到键盘处理程序较长，且最后总要送数码管显示，所以去后沿抖动时仅延时4.5ms。而且去抖是通过循环判断是否已撤键，避免对同一次按键的多次响应。这也要求延时程序不能耗时太长，避免过长的延迟。
+\subsection{BCD码的处理}
+在本程序中BCD码的应用很多。
+
+通过HEX2BCD程序将16进制数转换为BCD码，主要思路是除以10。
+
+BCD码的加一可通过以下命令简单实现，汇编中的DA命令必须紧跟在ADD或ADDC命令之后。 
+\begin{lstlisting}[language={[x86masm]assembler},escapeinside="",caption={BCD码加一，结果存入ACC}] 
+		MOV A, BCD码
+		ADD A,#1
+		DA A
+\end{lstlisting}
+
+但是汇编中对减一没有相应的命令，本程序中有子程序SUBBC可以实现此功能。主要思路是如果出现借位，个位会出现F，则再减6将个位变为9即可。
+\begin{lstlisting}[language={[x86masm]assembler},escapeinside="",caption={SUBBCD程序，BCD码减一}] 
+		SUBBCD:						;BCD码减一,对36H中的数做BCD码减1
+		PUSH ACC
+		PUSH PSW
+		DEC 36H
+		MOV A,36H
+		ANL A,#0FH
+		CJNE A,#0FH,SUBBCD_EXIT
+		CLR CY
+		MOV A,36H
+		SUBB A,#06
+		MOV 36H,A
+SUBBCD_EXIT:
+		POP PSW
+		POP ACC
+		RET
+\end{lstlisting}
+
+本程序中另外写有子程序BCDINC和BCDDEC，它们是为了配合键盘操作中对屏显数字做加减操作而设计的。除了实现个位和十位的加减，它还考虑到了0-9之间循环的问题。由于键盘操作的要求比较复杂，故直接编写了这两个新子程序，而没有重用SUBBCD程序。而且SUBBCD程序调用的频率很高，比键盘操作的频率高的多，所以程序不宜写的太臃肿，运行效率是考虑的一个重要因素。

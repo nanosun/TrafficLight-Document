@@ -192,8 +192,8 @@
 \hypersetup{
   bookmarksnumbered,%
   colorlinks,%
-  linkcolor=blue,%
-  citecolor=blue,%
+  linkcolor=black,%
+  citecolor=red,%
   plainpages=false,%
   pdfstartview=FitH
 }

@@ -1,8 +1,33 @@
-\begin{thebibliography}{0}
+\begin{thebibliography}{5}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[杨汝清和张伟军(2009)]{mcu1}
+\textsc{杨汝清, 张伟军}.
+\newblock {机电控制技术}[M].
+\newblock 北京: 科学出版社, 2009.
+
+\bibitem[张迎新(2008)]{mcu}
+\textsc{张迎新}.
+\newblock {单片机初级教程：单片机基础}[M].
+\newblock 北京: 北京航空航天大学出版社, 2008.
+
+\bibitem[张毅刚(2003)]{mcu2}
+\textsc{张毅刚}.
+\newblock {新编MCS-51单片机应用设计}[M].
+\newblock 哈尔滨: 哈尔滨工业大学出版社, 2003.
+
+\bibitem[张鑫(2005)]{mcu3}
+\textsc{张鑫}.
+\newblock {单片机原理及应用}[M].
+\newblock 北京: 电子工业出版社, 2005.
+
+\bibitem[郭速学~等(2005)]{mcu4}
+\textsc{郭速学, 朱承彦, 郭楠}.
+\newblock {图解单片机功能与应用}[M].
+\newblock 北京: 中国电力出版社, 2005.
 
 \end{thebibliography}
