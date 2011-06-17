@@ -11,4 +11,60 @@
 
 \chapter{软件设计及问题研讨}
 \label{chap:software}
-本章是本篇论文的重点，因为本人在本次课程设计工作中主要做的的就是程序设计。
+本章是本篇论文的重点，因为本人在本次课程设计工作中主要做的的就是程序设计，对于这一部分有许多的了解最为深刻。首先我将阐述程序设计的基本思路，对重要的变量和子程序做解释。另外还将就程序设计中一些比较关键的问题做分析。
+
+\section{程序概览}
+本程序用全部用汇编语言编写，整体大约六百四十余行，编译后约占1.3Kb。附录\ref{app:code}提供了完整的源代码。
+\subsection{红灯时间参数的存储和调用}
+	本程序中最重要的参数就是两个路口的两个红灯时间参数，倒计时、切换灯的状态、设置时间参数等都是围绕这两个参数进行的。要解释清楚该程序，首先就需要解释这个参数的不同形式，和它们的存储和调用方式。
+	表\ref{tab:timeregister}列出了相关的参数作用和存储方式。在这些存储空间中，数据都是以BCD码的形式存储的，这是为了用户输入和显示的方便\footnote{但是本程序中标志时区的量都是以十六进制的形式存储的，这是因为时区参数与查表有关，而表格时连续的，16进制的时区参数对于查表是便捷的。}。
+	
+	这个表中数据是从底部行流向顶部行描述的存储空间的。而最后两行展示了ROM表与RAM表之间的优先级关系。
+	\begin{table}[!htpb]
+      	\centering
+      	\bicaption[tab:timeregister]{时间参数表}{时间参数表}{Table}{Time registers}
+      	\begin{tabular}{p{0.2\textwidth}|p{0.7\textwidth}} \toprule
+        \multicolumn{1}{c|}{存储形式} & \multicolumn{1}{c}{参数功能}   \\ \midrule   
+				\multicolumn{1}{c|}{R2\quad R3} & 分别存储当前两个倒计时数码管组显示的内容，R2为红灯，R3为绿灯(或黄灯) \\ \cmidrule(lr){1-2}
+				\multicolumn{1}{c|}{30H\quad 31H} & 存储当前时段的两个红灯时间参数，倒计时到0后，R2和R3会从这两个字节重新载入倒计时时间。三种情况改变这两个字节的值:
+				\begin{itemize} \item 当一个小时结束时; \item 用户通过键盘定义了当前时段的时间参数时，立即刷新，立即生效；\item 上位机发送包要求改变这两个位时。\end{itemize} \\ \cmidrule(lr){1-2}
+				ROM中的表\#TAB\_LIGHT \_TIME & 是预置在ROM中的时间参数表，按小时排列，每小时两个，共48个字节。当一小时计数到时，30H和31H从这个表中载入新的数据。\\ \cmidrule(lr){1-2}
+				RAM中50H到7FH & 这48个字节存储了用户通过键盘定义的时间参数数据。它的优先级比ROM中的表要高。但如果这个表中的数据为0。则视为未定义，程序仍从ROM表中读取数据存入30H和31H。 \\ 				 \bottomrule
+      	\end{tabular}
+		\end{table}
+\subsection{中断的应用}
+\begin{table}[!htpb]
+      	\centering
+   	\bicaption[tab:intvectors]{中断应用表}{中断应用表}{Table}{Interrupt vectors}
+      	\begin{tabular}{ccc|p{0.45\textwidth}} \toprule
+        中断优先级 & 中断名 & 中断处理程序 & 中断功能\\ \midrule
+        1 & 计时器0 & INT\_T0 & 计时$\frac{1}{144}$ 秒，清零看门狗，取反计数器2的输入端\\ \hline
+        2 & 计数器1 & INT\_C1 & 计数36，即0.5秒，中断处理程序完成倒计时等工作\\ \hline
+        3 & 外部中断0 & INT\_EX0 
+					& 响应地感线圈输入信号 \\ \hline
+				4 & 外部中断1 & INT\_EX1 
+					& 响应按键输入信号\\	\bottomrule
+      	\end{tabular}
+		\end{table}
+为了提高程序响应的速度，减少CPU的工作量，所有功能都移入中断处理程序中，主函数只起到初始化的作用。表\ref{tab:intvectors}列出了中断的应用方式。中断优先级的设置将在\ref{sec:intstudy}中讨论。此外，若要实现双机多机通讯，串口中断自然也需要应用。
+\subsection{子程序一览}   	   	           	\begin{longtable}[!htbp]{p{0.05\textwidth}|p{0.13\textwidth}|p{0.3\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}}\toprule \endhead \hline \endfoot
+	   	  
+        序号 & 子程序名 & 主要功能 & 主要参量& 包含子程序 \\ \hline 
+        1 & INT\_T0 & 清零看门狗，取反计数器2的输入端 & &\\ \hline
+        2 & INT\_C1 & 倒计时减一显示，切换灯状态，计时，重载时间参数 & R0灯状态，R6秒计数，R7分计数 &  SUBBCD, CLOSEDIG, DISPLAY\_NUMBER, CHANGELIGHT, GET\_TIME\_LIGHT等\\ \hline
+        3 & INT\_EX0 
+					& 响应地感线圈输入信号，向摄像头输出开关量控制信号\tnote{1} & & DELAY10\\ \hline
+				4 & INT\_EX1 
+					& 响应按键输入信号，完成键盘操作流程所要求的功能。& R4存储当前屏幕状态（显示内容的标志），3AH当前选择的时间段，3BH路口A的正在被设定的数据，3CH相应的路口B的数据 位7F标志当前调整的是高位还是低位& DELAY10, DELAY4MS5, HEX2BCD, DISPLAY\_NUMBER, GET\_TIME\_LIGHT, BCDINC, BCDDEC\\ \hline
+				5 & BCDINC &根据选位标志7F对高位或低位做加一运算，对9加一得到0 & 3DH传递被处理的数据&\\ \hline
+				6 & BCDDEC &根据选位标志7F对高位或低位做减一运算，对0减一得到9 & 3DH传递被处理的数据&\\ \hline		
+				7 & CLOSEDIG &根据选位标志，关闭某一位的显示& 3EH传递被处理的数据&通过调用DISPLAY \_NUMBER送显示\\ \hline 
+				8 & HEX2BCD &将16进制数转为BCD码，主要用于时区的显示 & 38H传递被处理的数据&\\ \hline		
+				9 & GET TIME LIGHT &根据当前的时区，刷新30H和31H中的数据 & 3DH传递被处理的数据&\\ \hline		
+				10 & CHANGE LIGHT &根据目前的灯状态，选通灯锁存器，点亮相应灯 & R0指向存储亮灯数值的单元(32H\-31H)&\\ \hline		
+				11 & DISPLAY NUMBER &将BCD码显示到数码管上，一次显示相邻的两位& 38H存放BCD码，39H存放低位数码管的地址& GETDIGIT, DISDIGIT\\ \hline	
+				12 & GETDIGIT &查表取数码管段码 & 取得段码存入38H&\\ \hline	
+				13 & DISDIGIT &将38H中的段码送入数码管显示 & &\\ \hline			
+				14 & SUBBCD &BCD码减一 & 对36H中的BCD码操作&\\ \hline	
+      	\end{longtable}
+\section{问题研讨及程序分析}

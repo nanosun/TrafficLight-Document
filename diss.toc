@@ -3,32 +3,24 @@
 \contentsline {chapter}{目\CTEX@spaceChar \CTEX@spaceChar 录}{ii}{chapter*.2}
 \contentsline {chapter}{插图索引}{v}{chapter*.4}
 \contentsline {chapter}{表格索引}{v}{chapter*.4}
-\contentsline {chapter}{\numberline {第一章\hspace {0.3em}}设计背景及任务}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}设计背景}{1}{section.1.1}
-\contentsline {section}{\numberline {1.2}设计任务}{1}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}基本设计要求}{1}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}扩展设计要求}{2}{subsection.1.2.2}
-\contentsline {chapter}{\numberline {第二章\hspace {0.3em}}硬件设计}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}硬件设计总体概况}{3}{section.2.1}
-\contentsline {section}{\numberline {2.2}数码管及信号灯驱动电路}{4}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}数码管}{4}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}信号灯驱动电路}{4}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}数码管及信号灯的选通}{5}{subsection.2.2.3}
-\contentsline {section}{\numberline {2.3}键盘}{5}{section.2.3}
-\contentsline {section}{\numberline {2.4}地感线圈输入与中断触发}{6}{section.2.4}
-\contentsline {section}{\numberline {2.5}小结}{7}{section.2.5}
-\contentsline {chapter}{\numberline {第三章\hspace {0.3em}}系统功能设计}{8}{chapter.3}
-\contentsline {section}{\numberline {3.1}信号灯交替流程}{8}{section.3.1}
-\contentsline {section}{\numberline {3.2}可调的亮灯时间}{8}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}预置数据表调节}{9}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}用户自定义亮灯时间}{9}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}双机通信调节}{9}{subsection.3.2.3}
-\contentsline {section}{\numberline {3.3}键盘屏显接口使用方法}{9}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}键位定义}{10}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}键盘设定操作流程}{10}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}强壮性设计}{10}{subsection.3.3.3}
-\contentsline {section}{\numberline {3.4}闯红灯拍照功能}{12}{section.3.4}
-\contentsline {section}{\numberline {3.5}仍待加入的功能}{12}{section.3.5}
-\contentsline {chapter}{\numberline {附录\nobreakspace {}A\hspace {0.3em}}电路图}{13}{appendix.A}
-\contentsline {chapter}{参考文献}{14}{appendix*.5}
-\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{15}{appendix*.6}
+\contentsline {chapter}{\numberline {第一章\hspace {0.3em}}系统功能设计}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}信号灯交替流程}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}可调的亮灯时间}{1}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}预置数据表调节}{2}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}用户自定义亮灯时间}{2}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}双机通信调节}{2}{subsection.1.2.3}
+\contentsline {section}{\numberline {1.3}键盘屏显接口使用方法}{2}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}键位定义}{3}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}键盘设定操作流程}{3}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}强壮性设计}{3}{subsection.1.3.3}
+\contentsline {section}{\numberline {1.4}闯红灯拍照功能}{5}{section.1.4}
+\contentsline {section}{\numberline {1.5}仍待加入的功能}{5}{section.1.5}
+\contentsline {chapter}{\numberline {第二章\hspace {0.3em}}软件设计及问题研讨}{6}{chapter.2}
+\contentsline {section}{\numberline {2.1}程序概览}{6}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}红灯时间参数的存储和调用}{6}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}中断的应用}{6}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}子程序一览}{8}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}问题研讨及程序分析}{10}{section.2.2}
+\contentsline {chapter}{\numberline {附录\nobreakspace {}A\hspace {0.3em}}电路图}{11}{appendix.A}
+\contentsline {chapter}{参考文献}{12}{appendix*.5}
+\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{13}{appendix*.6}
